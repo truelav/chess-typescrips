@@ -1,6 +1,6 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import { Board } from "../models/Board"
+import { Cell } from '../models/Cell'; 
 import CellComponent from './CellComponent'
 
 interface BoardProps {
@@ -9,6 +9,8 @@ interface BoardProps {
 }
 
 const BoardComponent = ({board, setBoard}: BoardProps) => {
+
+  const [selectedCell, setSelectedCell] = useState<Cell | null>(null)
 
   return (
     <div>
@@ -19,6 +21,7 @@ const BoardComponent = ({board, setBoard}: BoardProps) => {
               <CellComponent
                 cell={cell}
                 key={cell.id}
+                selected={false}
               />
             )}
           </React.Fragment>
